@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+/* =========================================================
+   JOCKY DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  /* Surfaces */
+  --page: #f4f5f4;
+  --surface: #fbfcfb;
+  --hairline: #d8dcda;
+
+  /* Text */
+  --text-primary: #202322;
+  --text-secondary: #505654;
+  --text-muted: #737976;
+
+  /* Accent */
+  --accent: #176b4d;
+
+  /* State */
+  --state-critical: #b42318;
+  --state-warning: #9a6700;
+  --state-success: #16794a;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Radius */
+  --radius-control: 3px;
+
+  /* Typography */
+  --font-ui: "Geist", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Motion */
+  --motion-fast: 120ms ease-out;
+}
+
+[data-theme="dark"] {
+  /* Surfaces */
+  --page: #101211;
+  --surface: #171918;
+  --hairline: #303431;
+
+  /* Text */
+  --text-primary: #e2e5e3;
+  --text-secondary: #b4bab6;
+  --text-muted: #858c88;
+
+  /* Accent */
+  --accent: #55b88b;
+
+  /* State */
+  --state-critical: #f06a61;
+  --state-warning: #d6a344;
+  --state-success: #5bc18e;
+}
+
+/* =========================================================
+   GLOBAL FOUNDATION
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--page);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--page);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   MACHINE / TABULAR DATA
+   ========================================================= */
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  color: var(--text-primary);
+  background: var(--page);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-control);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   INTERACTION
+   ========================================================= */
+
+button,
+a {
+  transition:
+    background-color var(--motion-fast),
+    color var(--motion-fast),
+    opacity var(--motion-fast);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
